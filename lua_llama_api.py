@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, render_template
 from lua_llama import gerar_resposta_llama  # Importa a função que gera resposta da IA
+import os  # Importa o módulo os para usar variáveis de ambiente
 
 app = Flask(__name__)
 
@@ -23,4 +24,7 @@ def consultar():
     return jsonify({'resposta': resposta})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Obtém a porta do ambiente, ou usa 5000 se não estiver definida
+    port = int(os.environ.get('PORT', 5000))
+    # Inicia o servidor com host 0.0.0.0 para permitir conexões externas
+    app.run(debug=True, host='0.0.0.0', port=port)
