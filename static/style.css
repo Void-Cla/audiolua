@@ -1,0 +1,192 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto Mono", monospace;
+}
+
+body {
+    font-family: "Roboto Mono", monospace;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.main {
+    min-height: 100vh;
+    width: 100%;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-container {
+    padding: 10px;
+    text-align: center;
+}
+
+.image-container .image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.image-container .image img {
+    width: 300px;
+}
+
+.image-container h1 {
+    color: #00bcd4;
+    margin-bottom: 10px;
+    font-size: 40px;
+}
+
+.image-container p {
+    color: #324042;
+    margin-bottom: 40px;
+}
+
+.wave-container {
+    margin: 20px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Certifica-se de que o container da onda é relativo para posicionar a animação absolutamente dentro dele */
+}
+
+.wave-animation {
+    width: 300px;
+    height: 50px;
+    background: rgba(0, 188, 212, 0.3);
+    border-radius: 25px;
+    position: absolute; /* Permite que a animação fique acima dos outros elementos */
+    z-index: 1000; /* Garante que a animação fique acima de outros elementos */
+    overflow: hidden;
+}
+
+.wave-animation::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0, 188, 212, 0.3) 20%, rgba(0, 188, 212, 0.5) 50%, rgba(0, 188, 212, 0.3) 80%);
+    animation: wave 1.5s ease-in-out infinite;
+    transform: translateX(100%);
+}
+
+.wave-animation.active::before {
+    animation: wave-active 0.5s ease-in-out infinite;
+}
+
+@keyframes wave {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes wave-active {
+    0% {
+        transform: translateX(-100%);
+        background: linear-gradient(90deg, rgba(0, 188, 212, 0.3) 20%, rgba(0, 188, 212, 0.6) 50%, rgba(0, 188, 212, 0.3) 80%);
+    }
+    50% {
+        transform: translateX(0%);
+        background: linear-gradient(90deg, rgba(0, 188, 212, 0.4) 20%, rgba(0, 188, 212, 0.8) 50%, rgba(0, 188, 212, 0.4) 80%);
+    }
+    100% {
+        transform: translateX(100%);
+        background: linear-gradient(90deg, rgba(0, 188, 212, 0.3) 20%, rgba(0, 188, 212, 0.6) 50%, rgba(0, 188, 212, 0.3) 80%);
+    }
+}
+
+.wave-animation .pulse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(0, 188, 212, 0.6);
+    animation: pulse 1s ease-in-out infinite;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.wave-animation.active .pulse {
+    animation: pulse-active 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+@keyframes pulse-active {
+    0% {
+        transform: scale(1);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+.input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40vw;
+    height: 50px;
+    border-radius: 20px;
+    background: rgba(202, 253, 255, 0.5);
+}
+
+.input .talk {
+    background: transparent;
+    outline: none;
+    border: none;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.input .talk i {
+    font-size: 20px;
+    color: #aed0d0;
+}
+
+.input .content {
+    color: #aed0d0;
+    font-size: 15px;
+    margin-right: 20px;
+}
+

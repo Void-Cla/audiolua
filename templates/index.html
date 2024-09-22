@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Void Lua - I.A</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='voidico.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> <!-- Caminho do CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Font Awesome -->
+</head>
+
+<body>
+    <section class="main">
+        <div class="image-container">
+            <div class="image">
+                <img src="{{ url_for('static', filename='ModelLua.gif') }}" alt="imagem">
+            </div>
+            <h1>L U A</h1>
+            <p>Eu sou a Lua. Como posso ajudar?</p>
+        </div>
+
+        <div class="input">
+            <button class="talk"><i class="fas fa-microphone-alt"></i></button>
+            <h1 class="content">Clique para falar.</h1>
+        </div>
+    </section>
+    <script src="{{ url_for('static', filename='app.js') }}"></script> <!-- Caminho do JavaScript -->
+</body>
+
+</html>
